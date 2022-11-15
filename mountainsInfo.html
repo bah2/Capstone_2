@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/templates.css">
+    <title>Capstone_2</title>
+</head>
+
+<body>
+    <!-- Navbar menu -->
+    <nav class="navbar navbar-dark bg-success fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Devs Last Trip</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Devs Last Trip</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More of what you may need
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-light">
+                                <li><a class="dropdown-item" href="nationalParkPage.html">National Park</a></li>
+                                <li><a class="dropdown-item" href="mountainsInfo.html">Mountains</a></li>
+                                <!-- add bonus page later -->
+                                <li><a class="dropdown-item" href="#"></a></li>
+                                <li>
+                                <li><a class="dropdown-item" href="#"></a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <header>
+
+        <br>
+        <hr>
+        <div class="container-fluid">
+            <p class="lead my-4 mt-auto">Most good programmers do programming not because they expect to get paid or get
+                adulation by the public, but because it is fun to program..</p>
+
+
+
+            <h5>Most good programmers do programming not because they expect to get paid or get adulation by the public,
+                but because it is fun to program.”
+            </h5>
+            <br>
+        </div>
+
+
+
+    </header>
+    <main>
+
+        <!-- Output Area -->
+
+        <br>
+        <hr>
+        <div class="col-12">
+            <select id="nationalParkDataOutPut" class="form-select-lg mb-sm-auto text-bg-light opacity-75">
+
+            </select>
+
+            <div id="container">
+
+            </div>
+
+
+            <br>
+
+            <hr>
+            <br>
+        </div>
+
+
+        <!-- Output Area -->
+        <section>
+            <h4>Parks</h4>
+            <div class="container-fluid">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="imagesForPages/mountain1.jpg" class="d-block w-100" alt="New York">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagesForPages/mountain2.jpg" class="d-block w-100" alt="New York">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagesForPages/mountain3.jpg" class="d-block w-100" alt="New York">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagesForPages/mountain4.jpg" class="d-block w-100" alt="New York">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagesForPages/mountain6.jpg" class="d-block w-100" alt="New York">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+        </script>
+
+
+    <script src="scripts/template.js"></script>
+    <script src="scripts/nationalParkData.js"></script>
+    <!-- <script src="scripts/index.js"></script> -->
+
+
+    <!-- footer -->
+    <footer class="p-5 bg-success text-light text-center position-relative form-control-plaintext">
+        <div class="container">
+            <p class="lead">
+                Copyright &copy;2022 YearUp Appdev Capstone_2 Enjoy the Outdoor LCJ_Ibh
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+
+</html>
