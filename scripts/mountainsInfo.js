@@ -547,20 +547,16 @@ let createdOption6 = document.createElement("option");
 
   let mountainsArrayLength  = mountainsArray.length;
 
-    for (let i = 0; i < mountainsArrayLength ; i++){
-      let createdOption3 = document.createElement("option");
-      createdOption3.text = mountainsArray[i];
-      selectMountain.appendChild(createdOption3);
-    }
-
-
-// selectMountain.onchange = () => {
+   for(let n of mountainsArray){
+    
+    let createdOption7 = document.createElement("option");
+    createdOption7.text = n.name;
+    selectMountain.appendChild(createdOption7);
 
 
 
-// }
 
-
+}
 }
 
 
