@@ -536,7 +536,7 @@ window.onload = () =>{
 const selectMountain = document.getElementById("selectMountain");
 const outputFromMountains = document.getElementById("outputFromMountains");
 
-const mountainsArray = document.getElementById("mountainsArray");
+
 
 
 let createdOption6 = document.createElement("option");
