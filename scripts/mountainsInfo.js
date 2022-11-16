@@ -553,10 +553,22 @@ let createdOption6 = document.createElement("option");
     createdOption7.text = n.name;
     selectMountain.appendChild(createdOption7);
 
-
-
-
 }
+// selectMountain.onchange = () => {
+    
+// }
+
+
+ function generateMountainList(listOfMountains){
+
+    let numOfMountains = [];
+    for(let i = 0; i < listOfMountains.length; i++){
+        numOfMountains += `<p> ${listOfMountains[i]}</p>`
+    }
+return numOfMountains;
+ }
+ console.log(mountainsArray);
+
 }
 
 
