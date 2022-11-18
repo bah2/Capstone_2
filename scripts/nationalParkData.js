@@ -5928,66 +5928,44 @@ window.onload = () => {
   }
 
 
-// function parkArrayDataPopulatingSelect () {
-//  let searchByType = document.getElementById("searchByType");
-//  let searchByLocation = document.getElementById("searchByLocation");
+    // let parkTypeLength = parkTypesArray.length;
 
-    let parkTypeLength = parkTypesArray.length;
+    // for (let i = 0; i < parkTypeLength; i++){
+    //   let createdOption3 = document.createElement("option");
+    //   createdOption3.text = parkTypesArray[i];
+    //   searchByType.appendChild(createdOption3);
+    // }
 
-    for (let i = 0; i < parkTypeLength; i++){
-      let createdOption3 = document.createElement("option");
-      createdOption3.text = parkTypesArray[i];
-      searchByType.appendChild(createdOption3);
-    }
 
-// }
+    // searchByType.onchange = () =>{
+    //   for(let park of nationalParksArray){
+    //     if(park.LocationName.indexOf(searchByType.value) != -1){
+    //       let option = new option (park.LocationName,park.LocationID);
+    //       searchByType.appendChild(option);
+    //     }
+    //   }
+    // }
+
 
 
    
-let parkLocationLength =  locationsArray.length;
+// let parkLocationLength =  locationsArray.length;
 
-for(let j = 0; j < parkLocationLength; j++){
-  let createdOption4 = document.createElement("option");
-  createdOption4.text = locationsArray[j];
-  searchByLocation.appendChild(createdOption4);
+// for(let j = 0; j < parkLocationLength; j++){
+//   let createdOption4 = document.createElement("option");
+//   createdOption4.text = locationsArray[j];
+//   searchByLocation.appendChild(createdOption4);
   
-}
+// }
 
 
-searchBtn.onclick = () => {
+// searchBtn.onclick = () => {
 
 //   let nationalParksArrayLength = nationalParksArray.length;
 
 //   for(let l = 0; l < nationalParksArrayLength; l++){}
     
-}
 
-
-
-
-
-
-
-
-
-
-
-   
-
- 
-
-
-
-
-
-    // let nationalParkDataOutPut = document.getElementById(
-    //     "nationalParkDataOutPut"
-    //   );
-    // for (let n of nationalParksArray) {
-    //   let option = document.createElement("option");
-    //   option.text = n.LocationName;
-    //   nationalParkDataOutPut.appendChild(option);
-    // }
 
 
   

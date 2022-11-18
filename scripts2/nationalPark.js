@@ -5887,68 +5887,58 @@ const nationalParksArray = [
   },
 ];
 
-// Hides select fields when page loads
-document.getElementById("searchByLocation").style.display = "none";
+window.onload = init;
+
+const searchParkByTypeRadioBtn = document.getElementById(
+  "searchParkByTypeRadioBtn"
+);
+const searchParkByLocationRadioBtn = document.getElementById(
+  "searchParkByLocationRadioBtn"
+);
+
+const searchByType = document.getElementById("searchByType");
+const searchByLocation = document.getElementById("searchByLocation");
+const searchBtn = document.getElementById("searchBtn");
+// const nationalParksArray = document.getElementById("nationalParksArray");
+
+function init() {
+  document.getElementById("searchByLocation").style.display = "none";
 document.getElementById("searchByType").style.display = "none";
+  selectLocationShow();
+  selectLocationHide();
+  populateLocationOption();
+  // populatePartTypeOption();
+}
 
-window.onload = () => {
- 
-//  let typeSearch = document.getElementById("searchByType");
-//  typeSearch.onchange = searhByTypeOnchange;
-//  let searchByLoc = document.getElementById("searchByLocation");
-//  let ResultOfParks = document.getElementById("finalSelect")
-
-// Most variable declearation
-  const searchParkByTypeRadioBtn = document.getElementById("searchParkByTypeRadioBtn");
-  const searchParkByLocationRadioBtn = document.getElementById("searchParkByLocationRadioBtn");
-  const searchByType = document.getElementById("searchByType");
-  const searchByLocation = document.getElementById("searchByLocation");
-  const searchBtn = document.getElementById("searchBtn");
-  // const nationalParksArray = document.getElementById("nationalParksArray");
-  const outputFromParks = document.getElementById("outputFromParks");
-
-  // creating element for select 
-  let createdOption1 = document.createElement("option");
-  createdOption1.value = "";
-  createdOption1.textContent = "Select park by type";
-  searchByType.appendChild(createdOption1);
-
-  let createdOption2 = document.createElement("option");
-  createdOption2.value = "";
-  createdOption2.textContent = "Select park by location";
-  searchByLocation.appendChild(createdOption2);
-
-  // let createdOption9 = document.createElement("option");
-  // createdOption9.value = "";
-  // createdOption9.textContent = "Select park by type";
-  // searchByType.appendChild(createdOption9);
 
 // Radio button to show and hide based on user select
-  searchParkByTypeRadioBtn.onclick = () => {
-    document.getElementById("searchByType").style.display = "block";
-    document.getElementById("searchByLocation").style.display = "none";
-    document.getElementById("searchBtn").style.display = "block";
-  }
+searchParkByTypeRadioBtn.onclick = () => {
+  document.getElementById("searchByType").style.display = "block";
+  document.getElementById("searchByLocation").style.display = "none";
+  document.getElementById("searchBtn").style.display = "none";
+}
 
-  searchParkByLocationRadioBtn.onclick = () => {
-    document.getElementById("searchByType").style.display = "none";
-    document.getElementById("searchByLocation").style.display = "block";
-    document.getElementById("searchBtn").style.display = "block";
+searchParkByLocationRadioBtn.onclick = () => {
+  document.getElementById("searchByType").style.display = "none";
+  document.getElementById("searchByLocation").style.display = "block";
+  document.getElementById("searchBtn").style.display = "none";
 
-  }
+}
 
-    let parkTypeLength = parkTypesArray.length;
+//programmatically populating the select fields
+let parkTypeLength = parkTypesArray.length;
+  
+for (let i = 0; i < parkTypeLength; i++){
+  let createdOption3 = document.createElement("option");
+  createdOption3.text = parkTypesArray[i];
+  searchByType.appendChild(createdOption3);
+}
 
-    for (let i = 0; i < parkTypeLength; i++){
-      
-      let createdOption3 = document.createElement("option");
-      createdOption3.text = parkTypesArray[i];
-      searchByType.appendChild(createdOption3);
-    }
 
 
-   
-let parkLocationLength =  locationsArray.length;
+function populateLocationOption() {
+
+  let parkLocationLength =  locationsArray.length;
 
 for(let j = 0; j < parkLocationLength; j++){
   let createdOption4 = document.createElement("option");
@@ -5956,19 +5946,87 @@ for(let j = 0; j < parkLocationLength; j++){
   searchByLocation.appendChild(createdOption4);
   
 }
+  
+}
+searchByLocation.onchange = () =>{
+  searchByLocation.length = 0;
+
+  let createdOption4 = document.createElement("option");
+  createdOption4.text = locationsArray[j];
+  searchByLocation.appendChild(createdOption4);
+  for (let park of nationalParksArray){
+    if(searchByLocation.value == park.State){
+      let option = new option (park.LocationName, park.LocationID)
+      searchByLocation.appendChild(option);
+    }
+  }
+  if(searchByLocation.value != "select"){
+    searchByLocation.style.display = "block"
+  }
+  
+}
 
 
+function onSearchTypeChanged(){
+  
+  
+}
 
 
+function filterParksByParkType(inputParks, partkType){
+  let results = [];
+  for(let i = 0; i < inputParks.length; i++){
+    let valueR = partkType(inputParks[i]);
+    results.push(valueR);
+  }
+  return results;
+}
+
+function filterParksByLocationType(inputParks, location){
+  let results = [];
+  for(let i = 0; i < inputParks.length; i++){
+    let valueR = location(inputParks[i]);
+    results.push(valueR);
+  }
+
+  return results;
+
+}
+
+// return "location" or "parkType" depending on current selection
+
+function getCurrenlySelectedSearchType(){
+
+}
+
+function selectLocationHide(){
+
+}
+
+function selectLocationShow(){
+
+}
+
+function clearSearchResults(){
+
+}
+
+// Add an array of parks to the result div
+
+function addParksToResults(parks){
+
+   for(let park of parks){
+    addParksToResults(park)
+  }
+
+}
+
+// Adds a single park to the results div.
+function addParksToResults(park){
+  const resultRow = document.getElementById("resultRow");
+  let outerCardDiv = document.getElementById("div");
+
+  resultRow.appendChild(outerCardDiv);
+}
 
 
-
-
-
-
-
-
-
-
-
-};
