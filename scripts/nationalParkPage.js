@@ -5887,88 +5887,206 @@ const nationalParksArray = [
   },
 ];
 
-// Hides select fields when page loads
-document.getElementById("searchByLocation").style.display = "none";
-document.getElementById("searchByType").style.display = "none";
+
+"use strict"
 
 window.onload = () => {
+
+    let searchMenu = document.getElementById("searchMenu");
+    searchMenu.onchange = searchMenuDropdown; 
+
+    let searchByLocation = document.getElementById("searchByLocation");
+    searchByLocation.onchange = searchByLocOnchange; 
+
+    let searchByParkType = document.getElementById("searchByParkType");
+    searchByParkType.onchange = searchByTypeOnchange; 
+
+    let listOfParks = document.getElementById("listOfParks");
+    listOfParks.onchange = outputAreaOnchange; 
+
  
-//  let typeSearch = document.getElementById("searchByType");
-//  typeSearch.onchange = searhByTypeOnchange;
-//  let searchByLoc = document.getElementById("searchByLocation");
-//  let ResultOfParks = document.getElementById("finalSelect")
+  
 
-// Most variable declearation
-  const searchParkByTypeRadioBtn = document.getElementById("searchParkByTypeRadioBtn");
-  const searchParkByLocationRadioBtn = document.getElementById("searchParkByLocationRadioBtn");
-  const searchByType = document.getElementById("searchByType");
-  const searchByLocation = document.getElementById("searchByLocation");
-  const searchBtn = document.getElementById("searchBtn");
-  // const nationalParksArray = document.getElementById("nationalParksArray");
-  const outputFromParks = document.getElementById("outputFromParks");
 
-  // creating element for select 
-  let createdOption1 = document.createElement("option");
-  createdOption1.value = "";
-  createdOption1.textContent = "Select park by type";
-  searchByType.appendChild(createdOption1);
 
-  let createdOption2 = document.createElement("option");
-  createdOption2.value = "";
-  createdOption2.textContent = "Select park by location";
-  searchByLocation.appendChild(createdOption2);
-
-  // let createdOption9 = document.createElement("option");
-  // createdOption9.value = "";
-  // createdOption9.textContent = "Select park by type";
-  // searchByType.appendChild(createdOption9);
-
-// Radio button to show and hide based on user select
-  searchParkByTypeRadioBtn.onclick = () => {
-    document.getElementById("searchByType").style.display = "block";
     document.getElementById("searchByLocation").style.display = "none";
-    document.getElementById("searchBtn").style.display = "block";
-  }
+    document.getElementById("searchByParkType").style.display = "none";
+    document.getElementById("listOfParks").style.display = "none";
+    document.getElementById("outputFromParks").style.display="none";
+}
 
-  searchParkByLocationRadioBtn.onclick = () => {
-    document.getElementById("searchByType").style.display = "none";
-    document.getElementById("searchByLocation").style.display = "block";
-    document.getElementById("searchBtn").style.display = "block";
+function searchMenuDropdown() {
 
-  }
+    document.getElementById("searchByLocation").style.display = "none";
+    document.getElementById("searchByParkType").style.display = "none";
+    document.getElementById("outputFromParks").style.display = "none";
+    document.getElementById("listOfParks").style.display = "none";
 
-    let parkTypeLength = parkTypesArray.length;
+    let searchMenu = document.getElementById("searchMenu").value;
 
-    for (let i = 0; i < parkTypeLength; i++){
-      
-      let createdOption3 = document.createElement("option");
-      createdOption3.text = parkTypesArray[i];
-      searchByType.appendChild(createdOption3);
+
+    if (searchMenu == "Location") {
+        document.getElementById("searchByLocation").style.display = "block";
+
+        cOptionForLocation(); 
+        
+        
+
+
+    } else if (searchMenu == "Park Type") {
+
+        document.getElementById("searchByParkType").style.display = "block";
+        cOptionForParks()
+
+    }
+
+    else if (searchMenu == "") {
+        document.getElementById("searchByLocation").style.display = "none";
+        document.getElementById("searchByParkType").style.display = "none";
+    }
+
+}
+
+
+function cOptionForLocation() {
+  
+    let searchByLocation = document.getElementById("searchByLocation");
+
+    let newOption = document.createElement("option");
+    newOption.value = "";
+    newOption.text = "Please Select a State";
+    searchByLocation.appendChild(newOption);
+
+    for (let location of locationsArray) {
+        let newOption = document.createElement("option");
+        newOption.value = location;
+        newOption.textContent = location;
+        searchByLocation.appendChild(newOption);
+
+    }
+}
+
+cOptionForParks
+
+function cOptionForParks() {
+    
+  
+    let searchByParkType = document.getElementById("searchByParkType");
+    searchByParkType.length = 0;
+    let option = document.createElement("option");
+    option.value = "";
+    option.text = "Please Select a Park Type";
+    searchByParkType.appendChild(option);
+   
+
+    for (let park of parkTypesArray) {
+        let parkOption = document.createElement("option");
+        parkOption.value = park;
+        parkOption.textContent = park;
+        searchByParkType.appendChild(parkOption);
+       
+    }
+  
+}
+
+
+  function searchByLocOnchange (){
+
+    document.getElementById("outputFromParks").style.display = "none";
+
+    let searchByLocation = document.getElementById("searchByLocation").value;
+
+    let result = document.getElementById("listOfParks")
+
+    result.length = 0;
+
+    let newOption = document.createElement("option");
+    newOption.value = "";
+    newOption.text = "Please Select a Park ";
+    result.appendChild(newOption);
+
+    for (let place of nationalParksArray) {
+
+        if (searchByLocation == place.State) {
+
+            //let paragraph = document.createElement("p");
+            let newOption = document.createElement("option");
+            newOption.value = place.LocationName;
+            newOption.text = place.LocationName;
+            result.appendChild(newOption);
+
+            //document.getElementById("myDiv").appendChild(paragraph);
+
+            result.style.display = "block";
+
+        } else if (searchByLocation == "") {
+
+            result.style.display = "none"
+        }
+
     }
 
 
-   
-let parkLocationLength =  locationsArray.length;
 
-for(let j = 0; j < parkLocationLength; j++){
-  let createdOption4 = document.createElement("option");
-  createdOption4.text = locationsArray[j];
-  searchByLocation.appendChild(createdOption4);
-  
 }
 
 
 
 
+function searchByTypeOnchange() {
+
+  
+    document.getElementById("outputFromParks").style.display = "none";
+   
+   
+    let searchByParkType = document.getElementById("searchByParkType").value;
+
+    let result = document.getElementById("listOfParks");
+   
+
+    result.length = 0;
+
+    let option = document.createElement("option");
+    option.value = "";
+    option.text = "Please Select a Park ";
+    result.appendChild(option);
+
+    for (let park of nationalParksArray) {
+
+        if (park.LocationName.indexOf(searchByParkType) != -1) {
+
+            let newOption = document.createElement("option");
+            newOption.value = park.LocationName;
+            newOption.text = park.LocationName;
+            result.appendChild(newOption);
+
+            result.style.display = "block";
+
+        }   else if (searchByParkType == "") {
+
+            result.style.display = "none"
+         }
+
+    }
+}
+
+function outputAreaOnchange() {
 
 
+    let result = document.getElementById("listOfParks");
+    let outputFromParks = document.getElementById("outputFromParks");
 
+    for (let park of nationalParksArray) {
 
+        if (result.value == park.LocationName) {
 
+            outputFromParks.style.display = "block"
+            outputFromParks.innerHTML = "<span style='color: dark;'>Name : </span>" + park.LocationName + "<br/>" + "<span style='color: white;'>Address : </span>" + park.Address + "<br/>" + "<span style='color: white;'>City : </span>" + park.City + "<br/>" + "<span style='color: white;'>State : </span>" + park.State + "<br/>" + "<span style='color: white;'>Zip Code : </span>" + park.ZipCode;
 
+        } else if (result.value == "") {
+            outputFromParks.style.display = "none"
 
+        }
+    }
 
-
-
-
-};
+}
