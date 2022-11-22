@@ -1,6 +1,7 @@
 "use strict";
 
 window.onload = () => {
+  // Todo restructure code by using helper function to improve readability
   const selectParkByType = document.getElementById("selectParkByType");
   const selectParkByLocation = document.getElementById("selectParkByLocation");
   const parksOfCategory = document.getElementById("parksOfCategory");
@@ -19,7 +20,7 @@ window.onload = () => {
     document.getElementById("selectParkByLocation").style.display = "block";
     document.getElementById("parksOfCategory").style.display = "block";
   }
-
+// Hides the parks select option and search button
   function displayHidden() {
     document.getElementById("selectParkByType").style.display = "none";
     document.getElementById("selectParkByLocation").style.display = "none";
@@ -31,7 +32,7 @@ window.onload = () => {
 
   displayHidden();
 };
-
+// Radio button that allows users to search park by type
 searchParkByTypeRadioBtn.onchange = function () {
   document.getElementById("selectParkByType").style.display = "block";
   document.getElementById("selectParkByLocation").style.display = "none";
@@ -39,7 +40,7 @@ searchParkByTypeRadioBtn.onchange = function () {
   document.getElementById("searchBtn").style.display = "none";
   document.getElementById("mainOutput").style.display = "none"
 };
-
+// Radio button that allows users to search park by location
 searchParkByLocationRadioBtn.onchange = function () {
   document.getElementById("selectParkByLocation").style.display = "block";
   document.getElementById("selectParkByType").style.display = "none";
@@ -48,7 +49,7 @@ searchParkByLocationRadioBtn.onchange = function () {
   document.getElementById("mainOutput").style.display = "none"
 };
 
-// populateSelectParkByType
+// programmatically populating the select park by type
 function populateSelectParkByType() {
   let option1  = document.createElement("option");
    option1.value = "";
@@ -63,8 +64,11 @@ function populateSelectParkByType() {
     selectParkByType.appendChild( option1);
   }
 }
+
 populateSelectParkByType();
-// populateSelectParkByLocation
+
+// programmatically populating the select park by location
+
 function populateSelectParkByLocation() {
   let option2 = document.createElement("option");
   option2.value = "";
@@ -81,6 +85,8 @@ function populateSelectParkByLocation() {
 }
 populateSelectParkByLocation();
 
+
+// 
 selectParkByType.onchange = () => {
   document.getElementById("searchBtn").style.display = "block"; 
   let selectParkByType = document.getElementById("selectParkByType").value;
@@ -144,6 +150,7 @@ searchBtn.onclick = () => {
     if (parksOfCategory.value == n.LocationName) {
       if (n.Visit == undefined) {
         outputFromParks.style.display = "block";
+        // TOdo restructure the output and incorporate links into the link button dynamically
 
         outputFromParks.innerHTML = `<strong>Location Name:</strong> 
       ${n.LocationName} <br> <strong>LocationID:</strong> ${n.LocationID} <br> <strong>Address:</strong> ${n.Address} <br> <strong>City:</strong> ${n.City} <br> <strong>State:</strong>  ${n.State} <br> <strong>ZipCode:</strong> ${n.ZipCode}<br> <strong>Phone:</strong>${n.Phone}<br> <strong>Fax:</strong> ${n.Fax}`;
@@ -157,7 +164,7 @@ searchBtn.onclick = () => {
     
    
   }
-
+  // conditions that target when a user does not select a park
   if(parksOfCategory.value == " ") {
     outputFromParks.innerHTML = ` <strong> You did not select a park; Please select a park and click the search button, thank you </strong>`
   } 
